@@ -1,7 +1,7 @@
 {
   "name": "shoeshop",
   "version": "0.1.0",
-  "proxy": "http://localhost:1000",
+  "proxy": "https://creepy-fedora-deer.cyclic.app",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^1.6.4",
