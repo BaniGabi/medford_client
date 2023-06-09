@@ -61,67 +61,71 @@ const ShopSection = (props) => {
             <div>Error: {error}</div>
           ) : (
             <>
-              {filteredProducts.map((product) => (
-                <div
-                  className="row p-2 bg-white border rounded"
-                  key={product._id}
-                >
-                  <div className="col-md-3 mt-1">
-                    <img
-                      className="img-fluid img-responsive rounded product-image"
-                      src={product.image}
-                      alt={product.name}
-                      height={50}
-                    />
-                  </div>
-                  <div className="col-md-6 mt-1">
-                    <h5>{product.name}</h5>
-                    <div className="d-flex flex-row">
-                      <div className="ratings mr-2"></div>
-                      <span>{product.reviews}</span>
+              {filteredProducts && filteredProducts.length > 0 ? (
+                filteredProducts.map((product) => (
+                  <div
+                    className="row p-2 bg-white border rounded"
+                    key={product._id}
+                  >
+                    <div className="col-md-3 mt-1">
+                      <img
+                        className="img-fluid img-responsive rounded product-image"
+                        src={product.image}
+                        alt={product.name}
+                        height={50}
+                      />
                     </div>
-                    <div className="mt-1 mb-1 spec-1"></div>
-                    <div className="mt-1 mb-1 spec-1">
-                      {product.countInStock > 0 ? (
-                        <span className="brand">Brand : Emzor</span>
-                      ) : (
-                        <>
-                          <span className="brand">Brand : Merk</span>
-                        </>
-                      )}
+                    <div className="col-md-6 mt-1">
+                      <h5>{product.name}</h5>
+                      <div className="d-flex flex-row">
+                        <div className="ratings mr-2"></div>
+                        <span>{product.reviews}</span>
+                      </div>
+                      <div className="mt-1 mb-1 spec-1"></div>
+                      <div className="mt-1 mb-1 spec-1">
+                        {product.countInStock > 0 ? (
+                          <span className="brand">Brand : Emzor</span>
+                        ) : (
+                          <>
+                            <span className="brand">Brand : Merk</span>
+                          </>
+                        )}
+                      </div>
+                      <p className="text-justify text-truncate para mb-0">
+                        {product.description}
+                      </p>
                     </div>
-                    <p className="text-justify text-truncate para mb-0">
-                      {product.description}
-                    </p>
-                  </div>
-                  <div className="align-items-center align-content-center col-md-3 border-left mt-1">
-                    <div className="d-flex flex-row align-items-center">
-                      <h5 className="mr-1">${product.price}</h5>
-                      <span className="strike-text">
-                        ${product.price / 0.4}
-                      </span>
-                    </div>
-                    <h6 className="text-success">Free shipping</h6>
-                    <div className="d-flex flex-column mt-4">
-                      <Link
-                        to={`/products/${product._id}`}
-                        className="btn btn-primary btn-sm"
-                      >
-                        Details
-                      </Link>
+                    <div className="align-items-center align-content-center col-md-3 border-left mt-1">
+                      <div className="d-flex flex-row align-items-center">
+                        <h5 className="mr-1">${product.price}</h5>
+                        <span className="strike-text">
+                          ${product.price / 0.4}
+                        </span>
+                      </div>
+                      <h6 className="text-success">Free shipping</h6>
+                      <div className="d-flex flex-column mt-4">
+                        <Link
+                          to={`/products/${product._id}`}
+                          className="btn btn-primary btn-sm"
+                        >
+                          Details
+                        </Link>
 
-                      <button
-                        className="btn btn-outline-primary  mt-2 fa fa-cart-plus"
-                        type="button"
-                        onClick={() => handleAddToList(product._id, 1)}
-                      >
-                        <i className=""></i>
-                        Add to list
-                      </button>
+                        <button
+                          className="btn btn-outline-primary  mt-2 fa fa-cart-plus"
+                          type="button"
+                          onClick={() => handleAddToList(product._id, 1)}
+                        >
+                          <i className=""></i>
+                          Add to list
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))
+              ) : (
+                <div>No products found.</div>
+              )}
             </>
           )}
         </div>
