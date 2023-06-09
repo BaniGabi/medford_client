@@ -32,9 +32,11 @@ const ShopSection = (props) => {
   };
 
   // Filter the products based on the keyword
-  const filteredProducts = products.filter((product) =>
-    product.name.toLowerCase().includes(keywordSearch.toLowerCase())
-  );
+  const filteredProducts =
+    products &&
+    products.filter((product) =>
+      product.name.toLowerCase().includes(keywordSearch.toLowerCase())
+    );
   return (
     <div className="container mt-5 mb-5">
       <div className="d-flex justify-content-center row">
