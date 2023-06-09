@@ -1,7 +1,7 @@
 {
   "name": "shoeshop",
   "version": "0.1.0",
-  "proxy": "https://medford-api.onrender.com",
+  "proxy": "http://localhost:1000",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^1.6.4",
