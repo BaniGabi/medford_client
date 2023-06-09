@@ -72,8 +72,7 @@ const Sidebar = () => {
                 <span className="text">Profile</span>
               </NavLink>
             </li>
-            <br />
-            <br />
+
             <li className="menu-item">
               <Link className="menu-link" to="/login">
                 <i className="icon fas fa-sign-in"></i>

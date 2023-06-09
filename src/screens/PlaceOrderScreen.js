@@ -59,20 +59,12 @@ const PlaceOrderScreen = ({ history }) => {
     <>
       <Sidebar />
       <main className="main-wrap">
-        <Header />
+        <Header title={"Place Order"} />
         <section className="content-main">
-          <div className="content-header">
-            <h3 className="content-title">Place Order</h3>
-          </div>
-          <div className="container">
-            <div className="row  order-detail">
+          <div className="container card card-body mb-4 shadow-sm">
+            <div className="row order-header">
               <div className="col-lg-4 col-sm-4 mb-lg-4 mb-5 mb-sm-0">
                 <div className="row ">
-                  <div className="col-md-4 center">
-                    <div className="alert-success order-box">
-                      <i class="fas fa-user"></i>
-                    </div>
-                  </div>
                   <div className="col-md-8 center">
                     <h5>
                       <strong>Hospital</strong>
@@ -85,11 +77,6 @@ const PlaceOrderScreen = ({ history }) => {
               {/* 2 */}
               <div className="col-lg-4 col-sm-4 mb-lg-4 mb-5 mb-sm-0">
                 <div className="row">
-                  <div className="col-md-4 center">
-                    <div className="alert-success order-box">
-                      <i className="fas fa-truck-moving"></i>
-                    </div>
-                  </div>
                   <div className="col-md-8 center">
                     <h5>
                       <strong>Order info</strong>
@@ -102,11 +89,6 @@ const PlaceOrderScreen = ({ history }) => {
               {/* 3 */}
               <div className="col-lg-4 col-sm-4 mb-lg-4 mb-5 mb-sm-0">
                 <div className="row">
-                  <div className="col-md-4 center">
-                    <div className="alert-success order-box">
-                      <i className="fas fa-map-marker-alt"></i>
-                    </div>
-                  </div>
                   <div className="col-md-8 center">
                     <h5>
                       <strong>Deliver to</strong>
@@ -144,7 +126,6 @@ const PlaceOrderScreen = ({ history }) => {
                           <h6>{item.qty}</h6>
                         </div>
                         <div className="mt-3 mt-md-0 col-md-2 col-6 align-items-end  d-flex flex-column justify-content-center ">
-                          <h4>SUBTOTAL</h4>
                           <h6>${item.qty * item.price}</h6>
                         </div>
                       </div>

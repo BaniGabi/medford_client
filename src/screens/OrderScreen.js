@@ -64,31 +64,17 @@ const OrderScreen = ({ match }) => {
     <>
       <Sidebar />
       <main className="main-wrap">
-        <Header />
         <section className="content-main">
-          <div className="content-header">
-            <h2 className="content-title">Order Detail</h2>
-          </div>
-          <div className="container">
+          <div className="container card card-body mb-4 shadow-sm">
             {loading ? (
               <Loading />
             ) : error ? (
               <Message variant="alert-danger">{error}</Message>
             ) : (
               <>
-                <div className="row  order-detail">
+                <div className="row  order-header">
                   <div className="col-lg-4 col-sm-4 mb-lg-4 mb-5 mb-sm-0">
                     <div className="row">
-                      <div className="col-md-4 center">
-                        <div
-                          className="order-box"
-                          style={{
-                            backgroundColor: "23px",
-                          }}
-                        >
-                          <i className="fas fa-user"></i>
-                        </div>
-                      </div>
                       <div className="col-md-8 center">
                         <h5>
                           <strong>Hospital</strong>
@@ -105,11 +91,6 @@ const OrderScreen = ({ match }) => {
                   {/* 2 */}
                   <div className="col-lg-4 col-sm-4 mb-lg-4 mb-5 mb-sm-0">
                     <div className="row">
-                      <div className="col-md-4 center">
-                        <div className="alert-success order-box">
-                          <i className="fas fa-truck-moving"></i>
-                        </div>
-                      </div>
                       <div className="col-md-8 center">
                         <h5>
                           <strong>Order info</strong>
@@ -135,11 +116,6 @@ const OrderScreen = ({ match }) => {
                   {/* 3 */}
                   <div className="col-lg-4 col-sm-4 mb-lg-4 mb-5 mb-sm-0">
                     <div className="row">
-                      <div className="col-md-4 center">
-                        <div className="alert-success order-box">
-                          <i className="fas fa-map-marker-alt"></i>
-                        </div>
-                      </div>
                       <div className="col-md-8 center">
                         <h5>
                           <strong>Deliver to</strong>

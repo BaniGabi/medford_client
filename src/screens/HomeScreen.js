@@ -11,11 +11,7 @@ const HomeScreen = ({ match }) => {
     <>
       <Sidebar />
       <main className="main-wrap">
-        <Header />
         <section className="content-main">
-          <div className="content-header">
-            <h2 className="content-title">Products</h2>
-          </div>
           <ShopSection keyword={"m"} pagenumber={1} />
         </section>
       </main>

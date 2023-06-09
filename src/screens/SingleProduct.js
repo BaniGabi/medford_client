@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from "react";
-import Header from "./../components/Header";
-import Rating from "../components/homeComponents/Rating";
-import { Link } from "react-router-dom";
-import Message from "./../components/LoadingError/Error";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   createProductReview,
   listProductDetails,
 } from "../Redux/Actions/ProductActions";
-
+import Rating from "../components/homeComponents/Rating";
+import Message from "../components/LoadingError/Error";
 import Loading from "../components/LoadingError/Loading";
-import { PRODUCT_CREATE_REVIEW_RESET } from "../Redux/Constants/ProductConstants";
 import moment from "moment";
 import Sidebar from "../components/sidebar";
+import { PRODUCT_CREATE_REVIEW_RESET } from "../Redux/Constants/ProductConstants";
 
 const SingleProduct = ({ history, match }) => {
   const [qty, setQty] = useState(1);
@@ -43,10 +41,10 @@ const SingleProduct = ({ history, match }) => {
     dispatch(listProductDetails(productId));
   }, [dispatch, productId, successCreateReview]);
 
-  const AddToCartHandle = (e) => {
-    e.preventDefault();
+  const addToCartHandler = () => {
     history.push(`/cart/${productId}?qty=${qty}`);
   };
+
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(
@@ -56,11 +54,11 @@ const SingleProduct = ({ history, match }) => {
       })
     );
   };
+
   return (
     <>
       <Sidebar />
       <main className="main-wrap">
-        <Header />
         <section className="content-main">
           <div className="content-header">
             <h2 className="content-title">Drug Detail</h2>
@@ -74,8 +72,12 @@ const SingleProduct = ({ history, match }) => {
               <>
                 <div className="row">
                   <div className="col-md-6">
-                    <div className="single-image">
-                      <img src={product.image} alt={product.name} />
+                    <div className="img-fluid img-responsive rounded product-image">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        height={350}
+                      />
                     </div>
                   </div>
                   <div className="col-md-6">
@@ -85,7 +87,7 @@ const SingleProduct = ({ history, match }) => {
                       </div>
                       <p>{product.description}</p>
 
-                      <div className="product-count col-lg-7 ">
+                      <div className="product-count col-lg-7">
                         <div className="flex-box d-flex justify-content-between align-items-center">
                           <h6>Price</h6>
                           <span>${product.price}</span>
@@ -95,7 +97,7 @@ const SingleProduct = ({ history, match }) => {
                           {product.countInStock > 0 ? (
                             <span>In Stock</span>
                           ) : (
-                            <span>unavailable</span>
+                            <span>Unavailable</span>
                           )}
                         </div>
                         <div className="flex-box d-flex justify-content-between align-items-center">
@@ -105,7 +107,7 @@ const SingleProduct = ({ history, match }) => {
                             text={`${product.numReviews} reviews`}
                           />
                         </div>
-                        {product.countInStock > 0 ? (
+                        {product.countInStock > 0 && (
                           <>
                             <div className="flex-box d-flex justify-content-between align-items-center">
                               <h6>Quantity</h6>
@@ -123,13 +125,13 @@ const SingleProduct = ({ history, match }) => {
                               </select>
                             </div>
                             <button
-                              onClick={AddToCartHandle}
+                              onClick={addToCartHandler}
                               className="round-black-btn"
                             >
                               Add To List
                             </button>
                           </>
-                        ) : null}
+                        )}
                       </div>
                     </div>
                   </div>
@@ -139,35 +141,34 @@ const SingleProduct = ({ history, match }) => {
                 <div className="row my-5">
                   <div className="col-md-6">
                     <h6 className="mb-3">REVIEWS</h6>
-                    {product.reviews.length === 0 && (
-                      <Message variant={"alert-info mt-3"}>No Reviews</Message>
-                    )}
-                    {product.reviews.map((review) => (
-                      <div
-                        key={review._id}
-                        className="mb-5 mb-md-3 bg-light p-3 shadow-sm rounded"
-                      >
-                        <strong>{review.name}</strong>
-                        <Rating value={review.rating} />
-                        <span>{moment(review.createdAt).calendar()}</span>
-                        <div className="alert alert-info mt-3">
-                          {review.comment}
+                    {product.reviews.length === 0 ? (
+                      <Message variant="alert-info mt-3">No Reviews</Message>
+                    ) : (
+                      product.reviews.map((review) => (
+                        <div
+                          key={review._id}
+                          className="mb-5 mb-md-3 bg-light p-3 shadow-sm rounded"
+                        >
+                          <strong>{review.name}</strong>
+                          <Rating value={review.rating} />
+                          <span>{moment(review.createdAt).calendar()}</span>
+                          <div className="alert alert-info mt-3">
+                            {review.comment}
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))
+                    )}
                   </div>
                   <div className="col-md-6">
                     <h6>WRITE A CUSTOMER REVIEW</h6>
-                    <div className="my-4">
-                      {loadingCreateReview && <Loading />}
-                      {errorCreateReview && (
-                        <Message variant="alert-danger">
-                          {errorCreateReview}
-                        </Message>
-                      )}
-                    </div>
                     {userInfo ? (
                       <form onSubmit={submitHandler}>
+                        {loadingCreateReview && <Loading />}
+                        {errorCreateReview && (
+                          <Message variant="alert-danger">
+                            {errorCreateReview}
+                          </Message>
+                        )}
                         <div className="my-4">
                           <strong>Rating</strong>
                           <select
@@ -186,7 +187,7 @@ const SingleProduct = ({ history, match }) => {
                         <div className="my-4">
                           <strong>Comment</strong>
                           <textarea
-                            row="3"
+                            rows="3"
                             value={comment}
                             onChange={(e) => setComment(e.target.value)}
                             className="col-12 bg-light p-3 mt-2 border-0 rounded"
@@ -203,12 +204,12 @@ const SingleProduct = ({ history, match }) => {
                       </form>
                     ) : (
                       <div className="my-3">
-                        <Message variant={"alert-warning"}>
+                        <Message variant="alert-warning">
                           Please{" "}
                           <Link to="/login">
-                            " <strong>Login</strong> "
+                            <strong>Login</strong>
                           </Link>{" "}
-                          to write a review{" "}
+                          to write a review.
                         </Message>
                       </div>
                     )}

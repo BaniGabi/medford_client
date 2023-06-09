@@ -1052,6 +1052,9 @@ ul.row-sm {
   align-items: center;
   font-size: 25px;
 }
+.order-header {
+  border-style: outset;
+}
 .order-product {
   margin: 40px 0;
   border-bottom: 2px solid #f3f3f3;
@@ -1222,4 +1225,264 @@ ul.row-sm {
   font-size: 1.2rem;
   line-height: 0.7;
   vertical-align: bottom;
+}
+/*Style list product*/
+.ratings i {
+  font-size: 16px;
+  color: red;
+}
+.strike-text {
+  color: red;
+  text-decoration: line-through;
+}
+.product-image {
+  width: 50%;
+}
+.dot {
+  height: 7px;
+  width: 7px;
+  margin-left: 6px;
+  margin-right: 6px;
+  margin-top: 3px;
+  background-color: blue;
+  border-radius: 50%;
+  display: inline-block;
+}
+.spec-1 {
+  color: #938787;
+  font-size: 15px;
+}
+h5 {
+  font-weight: 400;
+}
+.para {
+  font-size: 16px;
+}
+.border-left {
+  border: #938787;
+  border-left-style: solid;
+  border-width: 0.5px;
+}
+.brand {
+  color: #2269ff;
+}
+/* Customize the background color */
+.toastify-container .Toastify__toast--success {
+  background-color: #2269ff;
+}
+
+/* Customize the text color */
+.toastify-container .Toastify__toast--success .Toastify__toast-body {
+  color: white;
+}
+/*My customize searchbar*/
+.searchbar {
+  margin-bottom: auto;
+  margin-top: auto;
+  height: 60px;
+  background-color: #2269ff;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.search_input {
+  color: white;
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 0;
+  caret-color: transparent;
+  line-height: 40px;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_input {
+  color: white;
+  padding: 0 10px;
+  width: 450px;
+  caret-color: white;
+  transition: width 0.4s linear;
+}
+
+.searchbar:hover > .search_icon {
+  background: white;
+  color: #e74c3c;
+}
+
+.search_icon {
+  height: 40px;
+  width: 40px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+}
+/*Cart desing*/
+
+.title-list {
+  margin-bottom: 5vh;
+}
+.card-list {
+  margin: auto;
+  max-width: 950px;
+  width: 90%;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+  border: transparent;
+}
+@media (max-width: 767px) {
+  .card-list {
+    margin: 3vh auto;
+  }
+}
+.cart-list {
+  background-color: #fff;
+  padding: 4vh 5vh;
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+@media (max-width: 767px) {
+  .cart-list {
+    padding: 4vh;
+    border-bottom-left-radius: unset;
+    border-top-right-radius: 1rem;
+  }
+}
+.summary {
+  background-color: #ddd;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 4vh;
+  color: rgb(65, 65, 65);
+}
+@media (max-width: 767px) {
+  .summary {
+    border-top-right-radius: unset;
+    border-bottom-left-radius: 1rem;
+  }
+}
+.summary .col-2 {
+  padding: 0;
+}
+.summary .col-10 {
+  padding: 0;
+}
+.row {
+  margin: 0;
+}
+.title-list b {
+  font-size: 1.5rem;
+}
+.main-list {
+  margin: 0;
+  padding: 2vh 0;
+  width: 100%;
+}
+.col-2,
+.col {
+  padding: 0 1vh;
+}
+a {
+  padding: 0 1vh;
+}
+.close-list {
+  margin-left: auto;
+  font-size: 0.7rem;
+}
+.img-list {
+  width: 3.5rem;
+}
+.back-to-shop {
+  margin-top: 4.5rem;
+}
+h5 {
+  margin-top: 4vh;
+}
+.hr-list {
+  margin-top: 1.25rem;
+}
+.form-list {
+  padding: 2vh 0;
+}
+.select-list {
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  padding: 1.5vh 1vh;
+  margin-bottom: 4vh;
+  outline: none;
+  width: 100%;
+  background-color: rgb(247, 247, 247);
+}
+.input-list {
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  padding: 1vh;
+  margin-bottom: 4vh;
+  outline: none;
+  width: 100%;
+  background-color: rgb(247, 247, 247);
+}
+input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.btn-list {
+  background-color: #2269ff;
+  border-color: #2269ff;
+  color: white;
+  width: 100%;
+  font-size: 0.7rem;
+  margin-top: 4vh;
+  padding: 1vh;
+  border-radius: 0;
+}
+.btn-lock {
+  background-color: #ff6c6c;
+  border-color: #ff6c6c;
+  color: white;
+  width: 100%;
+  font-size: 0.9rem;
+  margin-top: 4vh;
+  padding: 1vh;
+  border-radius: 0;
+}
+.price-locked {
+  color: red;
+}
+.lock-text {
+  color: red;
+}
+
+.lock-icon {
+  margin-left: 5px;
+}
+.btn-list:focus {
+  box-shadow: none;
+  outline: none;
+  box-shadow: none;
+  color: white;
+  -webkit-box-shadow: none;
+  -webkit-user-select: none;
+  transition: none;
+}
+.btn-list:hover {
+  color: white;
+}
+a {
+  color: black;
+}
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+#code {
+  background-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0.253),
+      rgba(255, 255, 255, 0.185)
+    ),
+    url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: center;
 }

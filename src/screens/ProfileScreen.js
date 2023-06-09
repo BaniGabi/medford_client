@@ -27,12 +27,8 @@ const ProfileScreen = () => {
     <>
       <Sidebar />
       <main className="main-wrap">
-        <Header />
+        <Header title={"Your account"} />
         <section className="content-main">
-          <div className="content-header">
-            <h2 className="content-title">Your Account</h2>
-          </div>
-
           <div className="container mt-lg-5 mt-3">
             <div className="row align-items-start">
               <div className="col-lg-4 p-0 shadow ">

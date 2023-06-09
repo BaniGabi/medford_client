@@ -1,31 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import $ from "jquery";
-import { logout } from "../Redux/Actions/userActions";
 
-const Header = () => {
-  const [keyword, setKeyword] = useState();
-  const dispatch = useDispatch();
-  let history = useHistory();
+const Header = (props) => {
+  const { title } = props;
 
-  const cart = useSelector((state) => state.cart);
-  const { cartItems } = cart;
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  const logoutHandler = () => {
-    dispatch(logout());
-  };
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    if (keyword.trim()) {
-      history.push(`/search/${keyword}`);
-    } else {
-      history.push("/");
-    }
-  };
   useEffect(() => {
     $("[data-trigger]").on("click", function (e) {
       e.preventDefault();
@@ -47,22 +29,7 @@ const Header = () => {
 
   return (
     <header className="main-header navbar">
-      <div className="col-search">
-        <form className="searchform" onSubmit={submitHandler}>
-          <div className="input-group">
-            <input
-              list="search_terms"
-              type="text"
-              className="form-control"
-              placeholder="Search term"
-              onChange={(e) => setKeyword(e.target.value)}
-            />
-            <button className="btn btn-light bg" type="button">
-              <i className="far fa-search"></i>
-            </button>
-          </div>
-        </form>
-      </div>
+      <h3> {title} </h3>
       <div className="col-nav">
         <button
           className="btn btn-icon btn-mobile me-auto"
